@@ -14,6 +14,26 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "debian/bookworm64"
 
+  Vagrant.configure("2") do |config|
+  config.vm.provision "shell", inline: "echo Hello"
+  
+  config.vm.define "server" do |server|
+  srv.vm.network "public_network", bridge: "enp4s0"
+  srv.vm.network "private_network",
+  ip: 192.168.57.10,
+  virtualbox__intnet: "intnet"
+  end
+
+  config.vm.define "printer" do |printer|
+  
+  end
+
+  config.vm.define "client" do |client|
+  end
+
+end
+
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
