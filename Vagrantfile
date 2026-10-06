@@ -25,6 +25,10 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "printer" do |printer|
+  printer.vm.network "private_network",
+  mac: "08002761E500",
+  type: "dhcp",
+  virtualbox__intnet: intnet 
   
   end
 
