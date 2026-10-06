@@ -32,7 +32,10 @@ Vagrant.configure("2") do |config|
   
   end
 
-  config.vm.define "client" do |client|
+  config.vm.define "c1" do |c1|
+  c1.vm.network "private_network",
+  type: "dhcp",
+  virtualbox__intnet: intnet 
   end
 
 end
